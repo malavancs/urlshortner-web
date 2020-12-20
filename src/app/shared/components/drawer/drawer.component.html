@@ -1,0 +1,9 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #sideNav mode="side" opened="true" [position]="nav_position">
+        <ng-content></ng-content>
+    </mat-drawer>
+    <mat-drawer-content>
+        <button (click)="sideNav.toggle()" mat-button>Toggle SideNav</button>
+        <button (click)="onTogglePosition(nav_position)" mat-button>Toggle Position {{ nav_position }}</button>
+    </mat-drawer-content>
+</mat-drawer-container>

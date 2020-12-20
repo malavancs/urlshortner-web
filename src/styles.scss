@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --grey: #868686;
+  --font-size-label: 14px; 
+  --default-padding: 10px;// or any global you wish to share with components 
+}

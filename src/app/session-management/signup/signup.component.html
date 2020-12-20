@@ -1,1 +1,34 @@
-<app-button></app-button>
+<div style="display: flex; justify-content: space-around;padding: 10px;">
+    <app-button [text]="'LOGIN'" [icon]="'content_copy'" [isRounded]="false" (press)="pressed($event)"></app-button>
+    <app-button [text]="'COPY TO CLIPBOARD'" [icon]="'content_copy'" [isRounded]="true"></app-button>
+    <app-button [text]="'COPY TO CLIPBOARD'" [isRounded]="false"></app-button>
+</div>
+
+<div style="display: flex; justify-content: space-around;padding: 10px;">
+    <app-inputbox [label]="'Username or Email'" [formControlName]="malvan"></app-inputbox>
+    <app-inputbox [label]="'Password'" [formControlName]="malvan"></app-inputbox>
+    <app-inputbox [label]="'Enter the url'" [formControlName]="malvan"></app-inputbox>
+
+</div>
+
+<div style="display: flex; justify-content: space-around;padding: 10px;">
+    <app-pagetitle [title]="'Username or Email'"></app-pagetitle>
+    <app-pagetitle [title]="'Password'"></app-pagetitle>
+    <app-pagetitle [title]="'Enter the url'"></app-pagetitle>
+
+</div>
+
+<div style="display: flex; justify-content: space-around;padding: 10px;">
+        <app-checkbox (toggleChange)="pressed($event)"></app-checkbox>
+        <app-checkbox (toggleChange)="pressed($event)"></app-checkbox>
+        <app-checkbox (toggleChange)="pressed($event)"></app-checkbox>
+    
+</div>
+
+<div style="display: flex; justify-content: space-around;padding: 10px;">
+        <app-drawer>
+            <p>This content</p>
+        </app-drawer>
+        <app-drawer></app-drawer>
+    
+</div>
