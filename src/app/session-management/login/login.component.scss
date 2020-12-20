@@ -1,0 +1,68 @@
+.root-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-top: 8%;
+}
+
+.center-align {
+  text-align: center;
+
+}
+
+.secondary-heading {
+  font-size: 16px;
+  color: #868686;
+  font-weight: lighter;
+}
+
+.main-heading {
+  color: #585858;
+  font-size: 25px;
+}
+
+.google-login {
+  padding-top: 03%;
+}
+
+.black {
+  color: black;
+
+}
+
+.divider {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+  margin-left: 3%;
+  margin-right: 3%;
+
+}
+
+.full-width {
+  width: -webkit-fill-available;
+}
+
+.line {
+  // border: 1px solid var(--grey);
+  width: -webkit-fill-available;
+  height: 1px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: var(--grey);
+}
+
+.padding-horizondal {
+  padding: 0px 10px;
+}
+
+.align {
+  display: block;
+}
+
+.right {
+  align-items: right;
+}
+.padding-all{
+    padding:10px;
+}

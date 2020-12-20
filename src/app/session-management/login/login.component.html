@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class="root-container">
+    <div class="center-align">
+        <p class="main-heading">Login and start sharing</p>
+
+        <p class="secondary-heading">Dont't have an account signup ?</p>
+        <div class="google-login">
+            <p class="secondary-heading black">Login with:</p>
+            <div style="width:fit-content;margin: auto;">
+                <app-button [text]="'Google'" [icon]="'content_copy'" [isRounded]="false" (press)="pressed($event)">
+                </app-button>
+            </div>
+        </div>
+        <div class="divider">
+            <div class="line"></div>
+            <div class="secondary-heading padding-horizondal">OR</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="align right">
+            <div class="padding-all">
+                <app-inputbox class="full-width" [label]="'Username or Email'" [formControlName]="malvan">
+                </app-inputbox>
+
+            </div>
+            <div class="padding-all">
+                <app-inputbox class="full-width" [label]="'Password'" [formControlName]="malvan"></app-inputbox>
+            </div>
+        </div>
+        <div style="padding-top: 10%;">
+            <app-button class="full-width" style="padding-top: 10%;" [text]="'  LOGIN'" [icon]="'login'" [isRounded]="false"
+                (press)="loginClicked($event)">
+            </app-button>
+
+        </div>
+    </div>
+</div>

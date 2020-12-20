@@ -1,4 +1,4 @@
-<button *ngIf="!isRounded" [attr.md-raised-button]="!isRounded ? '' : null" mat-raised-button color="primary" (click)="onClick($event)">
+<button style="width: -webkit-fill-available;" *ngIf="!isRounded" [attr.md-raised-button]="!isRounded ? '' : null" mat-raised-button color="primary" (click)="onClick($event)">
     <mat-icon *ngIf="icon">{{icon}}</mat-icon>{{text}}
 </button>
 
