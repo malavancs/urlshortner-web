@@ -7,6 +7,8 @@ import { SharedModule } from './shared/shared.module';
 import { SessionManagementModule } from './session-management/session-management.module';
 import { LinkManagementModule } from './link-management/link-management.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BasicAuthInterceptor } from './core/interceptor/basic-auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LinkManagementModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    // provider used to create fake backend
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

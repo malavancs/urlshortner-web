@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DrawerComponent } from './components/drawer/drawer.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent],
   imports: [
@@ -19,7 +20,9 @@ import { DrawerComponent } from './components/drawer/drawer.component';
     MatButtonModule,
     MatToolbarModule,
     MatSlideToggleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule,
+
   ],
   exports: [
     ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent
