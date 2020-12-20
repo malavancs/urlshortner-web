@@ -1,1 +1,8 @@
-<p>button works!</p>
+<button *ngIf="!isRounded" [attr.md-raised-button]="!isRounded ? '' : null" mat-raised-button color="primary" (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{icon}}</mat-icon>{{text}}
+</button>
+
+
+<button *ngIf="isRounded" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon" (click)="onClick($event)">
+    <mat-icon>{{icon}}</mat-icon>
+</button>

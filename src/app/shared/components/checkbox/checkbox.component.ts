@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-checkbox',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckboxComponent implements OnInit {
 
+  @Output() toggleChange: EventEmitter<MatSlideToggleChange> = new EventEmitter<MatSlideToggleChange>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  onToggleChange() {
+    this.toggleChange.emit();
+  }
 }

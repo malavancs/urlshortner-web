@@ -12,4 +12,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  pressed(event){
+    console.log(event);
+  }
+
 }
