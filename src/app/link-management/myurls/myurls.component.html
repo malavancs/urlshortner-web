@@ -1,1 +1,37 @@
-<p>myurls works!</p>
+<mat-drawer-container class="example-container">
+    <mat-drawer #sideNav mode="side" opened="false" [position]="'end'">
+        <app-newurl (newURLAdded)="refreshPage()"></app-newurl>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div>
+            <div style="width: fit-content;padding:20px;">
+                <app-pagetitle [title]="'MY URLS'"></app-pagetitle>
+            </div>
+            <div class="root-container">
+                <div class="card" *ngFor="let n of myURLS">
+                    <span class="">
+                        <div style="display: flex;justify-content: space-between;">
+                            <div style="font-weight:bold; font-size: 16px;    min-width: 90%;
+                            width: min-content;
+                            word-break: break-all;">{{n.longUrl}}</div>
+                            <mat-icon style="font-size: 20px;cursor: pointer;">content_copy</mat-icon>
+                        </div>
+                        <div style="display: flex;justify-content: space-between;">
+                            <div style="font-weight:lighter;padding-top:10px;"><a [href]="cleanURL(n.shortUrl)">
+                                    http://localhost:3000/u/{{n.shortUrl}}</a>
+                            </div>
+                            <mat-icon style="padding-top: 10px;font-size: 20px;cursor: pointer;">content_copy</mat-icon>
+                        </div>
+                        <div style="display: flex;justify-content: space-between;">
+                            <div style="font-weight:lighter;padding-top:10px;">Clicks: {{n.clicks}}</div>
+                        </div>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+<div style="position: fixed;bottom: 5%;right: 5%;z-index: 10;">
+    <app-button [text]="'COPY TO CLIPBOARD'" [icon]="'add'" [isRounded]="true" (press)="sideNav.toggle()"></app-button>
+</div>

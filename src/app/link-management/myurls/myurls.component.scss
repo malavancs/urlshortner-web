@@ -1,0 +1,22 @@
+.card {
+  -webkit-box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
+  height: 180px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.root-container {
+  padding: 0px 20px;
+  display: grid;
+  /* justify-content: center; */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 0.3fr));
+  grid-auto-rows: 12rem;
+  grid-gap: 3rem;
+  justify-content: center;
+}
+
+.example-container {
+  height: 90vh;
+}

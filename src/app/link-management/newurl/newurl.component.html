@@ -1,1 +1,27 @@
-<p>newurl works!</p>
+<div style="padding:10px;width: 46vH;">
+    <div>
+        <div class="padding-all">
+            <app-pagetitle [title]="'Generate new URL'"></app-pagetitle>
+        </div>
+        <div class="padding-all">
+            <app-inputbox [label]="'Enter the long url'" (textChanged)="longUrlChanged($event)"></app-inputbox>
+        </div>
+        <div class="padding-all" *ngIf="isGenerated">
+            <div class="container">
+                <div class="label">
+                    Short URL
+                </div>
+                <div class="input-text">
+                    <span>
+                        <a [href]="cleanURL(shortUrl)">{{shortUrl}}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="padding-all">
+
+            <app-button [text]="'Generate short url'" [icon]="'content_copy'" (press)="generateURL($event)"
+                [isRounded]="false"></app-button>
+        </div>
+    </div>
+</div>
