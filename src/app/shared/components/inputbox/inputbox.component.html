@@ -3,6 +3,6 @@
             {{label}}
     </div>
     <div>
-            <input type="text" style="width: -webkit-fill-available;" formControlName="formControlName" class="input-text">
+            <input type="text" [(ngModel)]="value" [attr.disabled]="disabled" style="width: -webkit-fill-available;" (input)="onChange($event.target.value)" class="input-text">
     </div>
 </div>

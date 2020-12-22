@@ -18,12 +18,12 @@
 
         <div class="align right">
             <div class="padding-all">
-                <app-inputbox class="full-width" [label]="'Username or Email'" [formControlName]="malvan">
+                <app-inputbox class="full-width" [label]="'Username or Email'" (textChanged)="emailChanged($event)">
                 </app-inputbox>
 
             </div>
             <div class="padding-all">
-                <app-inputbox class="full-width" [label]="'Password'" [formControlName]="malvan"></app-inputbox>
+                <app-inputbox class="full-width" [label]="'Password'" (textChanged)="passwordChanged($event)"></app-inputbox>
             </div>
         </div>
         <div style="padding-top: 10%;">

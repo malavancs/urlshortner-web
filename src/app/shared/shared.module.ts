@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent],
   imports: [
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSlideToggleModule,
     MatSidenavModule,
     HttpClientModule,
-
+    FormsModule,
+    MatGridListModule
   ],
   exports: [
     ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent

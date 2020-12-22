@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +8,37 @@ import { AuthenticationService } from 'src/app/core/service/authentication.servi
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  password: any;
+  email: any;
 
-  constructor(private authendicationService: AuthenticationService) { }
+  constructor(private authendicationService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
 
 
   loginClicked(event) {
-    this.authendicationService.login('mlvnhari@gmail.com', '12345678').subscribe((res: any) => {
-      console.log(res);
-    })
+    if (this.email && this.password) {
+      this.authendicationService.login(this.email, this.password).subscribe((res: any) => {
+        if (res) {
+          this.router.navigate(['/links/myurls']);
+        } else {
+          alert('Wrong password');
+        }
+      }, ((err: any) => {
+        console.log(err);
+        alert(err.error.message);
+      }));
+    }
+
+  }
+
+  passwordChanged(event) {
+    this.password = event;
+  }
+
+  emailChanged(event) {
+    this.email = event;
+
   }
 }

@@ -9,6 +9,11 @@ import { LinkManagementModule } from './link-management/link-management.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from './core/interceptor/basic-auth.interceptor';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import { BasicAuthInterceptor } from './core/interceptor/basic-auth.interceptor'
     SharedModule,
     SessionManagementModule,
     LinkManagementModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    MatSidenavModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
