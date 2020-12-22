@@ -20,7 +20,10 @@
         </div>
         <div class="padding-all">
 
-            <app-button [text]="'Generate short url'" [icon]="'content_copy'" (press)="generateURL($event)"
+            <app-button *ngIf="!isGenerated" [text]="'Generate short url'" [icon]="'run'" (press)="generateURL($event)"
+                [isRounded]="false"></app-button>
+
+                <app-button *ngIf="isGenerated" [text]="'URL Generated'" [icon]="'content_copy'" 
                 [isRounded]="false"></app-button>
         </div>
     </div>
