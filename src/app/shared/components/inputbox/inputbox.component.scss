@@ -1,15 +1,20 @@
-.container{
-    
-    .input-text{
-        padding: var(--default-padding);
-        border: 2px solid  var(--grey);
-        border-radius: 5px;
-        outline: none;
-    }
-    .label{
-        color: var(--grey);
-        font-size: var(--font-size-label); 
-        text-align: left;       
-        font-weight: lighter;
-    }
+.container {
+
+  .input-text {
+    padding: var(--default-padding);
+    border: 2px solid var(--grey);
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .label {
+    color: var(--grey);
+    font-size: var(--font-size-label);
+    text-align: left;
+    font-weight: lighter;
+  }
+}
+
+.full-width {
+  width: -webkit-fill-available;
 }
