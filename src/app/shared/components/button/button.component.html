@@ -1,8 +1,8 @@
-<button style="width: -webkit-fill-available;" *ngIf="!isRounded" [attr.md-raised-button]="!isRounded ? '' : null" mat-raised-button color="primary" (click)="onClick($event)">
+<button class="full-width" *ngIf="!isRounded" [attr.md-raised-button]="!isRounded ? '' : null" mat-raised-button color="primary" (click)="onClick($event)">
     <mat-icon *ngIf="icon">{{icon}}</mat-icon>{{text}}
 </button>
 
 
-<button style="width: 64px;height:64px;" *ngIf="isRounded" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon" (click)="onClick($event)">
+<button class="square-icon" *ngIf="isRounded" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon" (click)="onClick($event)">
     <mat-icon>{{icon}}</mat-icon>
 </button>

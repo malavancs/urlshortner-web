@@ -1,7 +1,7 @@
 .card {
-  -webkit-box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 50px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 50px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 50px -22px rgba(0, 0, 0, 0.75);
   height: 180px;
   padding: 10px;
   border-radius: 10px;
@@ -19,4 +19,43 @@ box-shadow: 10px 10px 50px -22px rgba(0,0,0,0.75);
 
 .example-container {
   height: 90vh;
+}
+
+.title-wrapper {
+  width: fit-content;
+  padding: 20px;
+}
+
+.single-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.long-url {
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 90%;
+  width: min-content;
+  word-break: break-all;
+}
+
+.copy-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.padding-top {
+  padding-top: 10px;
+}
+
+.url-higliter {
+  font-weight: lighter;
+  padding-top: 10px;
+}
+
+.floating-icon {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 10;
 }
