@@ -4,8 +4,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user';
 import { environment } from 'src/environments/environment';
-import { AuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+
 
 
 @Injectable({ providedIn: 'root' })
@@ -13,7 +14,7 @@ export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
-    constructor(private http: HttpClient,private authService: AuthService) {
+    constructor(private http: HttpClient,private authService: SocialAuthService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -22,8 +23,8 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(email: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/login`, { email, password })
+    login(payload) {
+        return this.http.post<any>(`${environment.apiUrl}/login`, payload)
             .pipe(map(user => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
                 // user.authdata = window.btoa(username + ':' + password);
