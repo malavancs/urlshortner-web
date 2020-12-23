@@ -13,7 +13,17 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('437926170744-fujiqam93gfc00qjh9qai4lkqo4do0u4.apps.googleusercontent.com')
+  }
+]);
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -33,7 +43,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
-    // provider used to create fake backend
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

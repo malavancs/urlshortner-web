@@ -14,6 +14,10 @@ export class LoginComponent implements OnInit {
   constructor(private authendicationService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    const currentUser = localStorage.getItem('currentUser');
+    if (localStorage !== null) {
+      this.router.navigate(['/links/myurls']);
+    }
   }
 
 
@@ -31,6 +35,9 @@ export class LoginComponent implements OnInit {
       }));
     }
 
+  }
+  pressed(event){
+    this.authendicationService.signInWithGoogle();
   }
 
   passwordChanged(event) {

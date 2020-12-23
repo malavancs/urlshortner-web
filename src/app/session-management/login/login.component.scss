@@ -1,13 +1,15 @@
 .root-container {
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  justify-content: flex-end;
   margin-top: 8%;
+  margin-right: 8%;
 }
 
 .center-align {
   text-align: center;
-
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
 }
 
 .secondary-heading {
