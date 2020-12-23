@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
 import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
+import { LoaderService } from 'src/app/shared/service/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent implements OnInit {
   email: any;
   subsbriver: any;
 
-  constructor(private authendicationService: AuthenticationService, private router: Router, private authService: SocialAuthService) { }
+  constructor(
+    private authendicationService: AuthenticationService,
+    private loaderService: LoaderService, private router: Router, private authService: SocialAuthService) { }
 
   ngOnInit() {
     const currentUser = localStorage.getItem('currentUser');
@@ -24,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.subsbriver = this.authService.authState.subscribe((user) => {
       console.log(user);
       if (user) {
+        this.loaderService.show();
         const payload = {
           email: user.email,
           password: user.idToken,
@@ -39,7 +43,9 @@ export class LoginComponent implements OnInit {
           } else {
             alert('Wrong password');
           }
+          this.loaderService.hide();
         }, ((err: any) => {
+          this.loaderService.hide();
           console.log(err);
           alert(err.error.message);
         }));
@@ -48,11 +54,12 @@ export class LoginComponent implements OnInit {
       }
 
     });
+    this.loaderService.hide();
   }
 
 
   loginClicked(event) {
-
+    this.loaderService.show();
     if (this.email && this.password) {
       const payload = {
         email: this.email, password: this.password
@@ -65,7 +72,9 @@ export class LoginComponent implements OnInit {
         } else {
           alert('Wrong password');
         }
+        this.loaderService.hide();
       }, ((err: any) => {
+        this.loaderService.hide();
         console.log(err);
         alert(err.error.message);
       }));
