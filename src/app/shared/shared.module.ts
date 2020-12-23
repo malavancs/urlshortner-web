@@ -14,8 +14,9 @@ import { DrawerComponent } from './components/drawer/drawer.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
-  declarations: [ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent],
+  declarations: [ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent, LoaderComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -28,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule
   ],
   exports: [
-    ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent
+    ButtonComponent, InputboxComponent, PagetitleComponent, CheckboxComponent, DrawerComponent, LoaderComponent
   ]
 })
 export class SharedModule { }

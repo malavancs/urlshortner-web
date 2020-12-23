@@ -4,6 +4,7 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { NewurlComponent } from '../newurl/newurl.component';
+import { LoaderService } from 'src/app/shared/service/loader.service';
 
 @Component({
   selector: 'app-myurls',
@@ -13,26 +14,32 @@ import { NewurlComponent } from '../newurl/newurl.component';
 export class MyurlsComponent implements OnInit {
 
   myURLS = [];
-  constructor(private linkService: LinksService, private sanitizer: DomSanitizer,private dialog: MatDialog) { }
+  constructor(
+    private linkService: LinksService,
+    private sanitizer: DomSanitizer,
+    private dialog: MatDialog,
+    private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.refreshPage();
   }
 
   refreshPage() {
+    this.loaderService.show();
     this.linkService.fetchMyURLS().subscribe((res: any) => {
       this.myURLS = res.data;
       this.myURLS.forEach((ele: any) => {
         console.log(typeof ele.createdAt);
         ele.shortUrl = `malavan.tech/u/${ele.shortUrl}`;
         ele.createdAt = this.timeSince(ele.createdAt);
-      }); 
+      });
+      this.loaderService.hide();
     });
   }
 
-  openDialog(){
-    const dialogRef = this.dialog.open(NewurlComponent,{
-      data:{
+  openDialog() {
+    const dialogRef = this.dialog.open(NewurlComponent, {
+      data: {
         message: 'Are you sure want to delete?',
         buttonText: {
           ok: 'Save',
