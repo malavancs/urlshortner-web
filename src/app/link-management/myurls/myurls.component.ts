@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LinksService } from '../service/links.service';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { NewurlComponent } from '../newurl/newurl.component';
 
 @Component({
   selector: 'app-myurls',
@@ -11,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class MyurlsComponent implements OnInit {
 
   myURLS = [];
-  constructor(private linkService: LinksService,private sanitizer: DomSanitizer) { }
+  constructor(private linkService: LinksService, private sanitizer: DomSanitizer,private dialog: MatDialog) { }
 
   ngOnInit() {
     this.refreshPage();
@@ -20,9 +22,52 @@ export class MyurlsComponent implements OnInit {
   refreshPage() {
     this.linkService.fetchMyURLS().subscribe((res: any) => {
       this.myURLS = res.data;
+      this.myURLS.forEach((ele: any) => {
+        console.log(typeof ele.createdAt);
+        ele.shortUrl = `malavan.tech/u/${ele.shortUrl}`;
+        ele.createdAt = this.timeSince(ele.createdAt);
+      }); 
     });
   }
-  cleanURL(oldURL ): SafeUrl {
-    return   this.sanitizer.bypassSecurityTrustResourceUrl(`${environment.apiUrl}/u/${oldURL}`);
+
+  openDialog(){
+    const dialogRef = this.dialog.open(NewurlComponent,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Save',
+          cancel: 'No'
+        }
+      }
+    });
+  }
+  cleanURL(oldURL): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`${environment.apiUrl}/u/${oldURL}`);
+  }
+  timeSince(date) {
+    date = new Date(date);
+    const minute = 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    const month = day * 30;
+    const year = day * 365;
+
+    const suffix = ' ago';
+
+    const elapsed = Math.floor((Date.now() - date) / 1000);
+
+    if (elapsed < minute) {
+      return 'just now';
     }
+
+    // get an array in the form of [number, string]
+    const a = elapsed < hour && [Math.floor(elapsed / minute), 'minute'] ||
+      elapsed < day && [Math.floor(elapsed / hour), 'hour'] ||
+      elapsed < month && [Math.floor(elapsed / day), 'day'] ||
+      elapsed < year && [Math.floor(elapsed / month), 'month'] ||
+      [Math.floor(elapsed / year), 'year'];
+
+    // pluralise and append suffix
+    return a[0] + ' ' + a[1] + (a[0] === 1 ? '' : 's') + suffix;
+  }
 }

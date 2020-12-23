@@ -1,34 +1,91 @@
-<mat-drawer-container class="example-container">
-    <mat-drawer #sideNav mode="side" opened="false" [position]="'end'">
-        <app-newurl (newURLAdded)="refreshPage()"></app-newurl>
-    </mat-drawer>
-    <mat-drawer-content>
-        <div>
-            <div class="title-wrapper">
-                <app-pagetitle [title]="'MY URLS'"></app-pagetitle>
-            </div>
-            <div class="root-container">
-                <div class="card" *ngFor="let n of myURLS">
-                    <span class="">
-                        <div class="single-item">
-                            <div class="long-url">{{n.longUrl}}</div>
-                            <mat-icon class="copy-icon">content_copy</mat-icon>
-                        </div>
-                        <div class="single-item">
-                            <div class="url-higliter"><a [href]="cleanURL(n.shortUrl)">
-                                    https://murlshortner.herokuapp.com/u/{{n.shortUrl}}</a>
-                            </div>
-                            <mat-icon class="copy-icon padding-top">content_copy</mat-icon>
-                        </div>
-                        <div class="single-item">
-                            <div class="url-higliter">Clicks: {{n.clicks}}</div>
-                        </div>
-                    </span>
-                </div>
-            </div>
+<div>
+        <div class="title-wrapper">
+            <app-pagetitle [title]="'MY URLS'"></app-pagetitle>
+            <div class="cotainer">
+                    <app-button [text]="'refresh'"  [isRounded]="true" [icon]="'refresh'" (press)="refreshPage()"></app-button>                
+                <app-button  [text]="'ADD URL'"  [isRounded]="false" (press)="openDialog()"></app-button>
+
+            </div> 
         </div>
-    </mat-drawer-content>
-</mat-drawer-container>
-<div class="floating-icon">
+        <!-- <div class="root-container">
+            <div class="card" *ngFor="let n of myURLS">
+                <span class="">
+                    <div class="single-item">
+                        <div class="long-url">{{n.longUrl}}</div>
+                        <mat-icon class="copy-icon">content_copy</mat-icon>
+                    </div>
+                    <div class="single-item">
+                        <div class="url-higliter"><a [href]="cleanURL(n.shortUrl)">
+                                https://murlshortner.herokuapp.com/u/{{n.shortUrl}}</a>
+                        </div>
+                        <mat-icon class="copy-icon padding-top">content_copy</mat-icon>
+                    </div>
+                    <div class="single-item">
+                        <div class="url-higliter">Clicks: {{n.clicks}}</div>
+                    </div>
+                </span>
+            </div>
+        </div> -->
+        <div id="card" style="padding: 20px;">
+            <table id="shareholding">
+                <tr class="table-header">
+                    <th>
+                        Num
+                    </th>
+
+                    <th>
+                        Short Url
+                    </th>
+                    <th>
+                        Long Url
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Clicks
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                <tr class="border-bottom" *ngFor="let row of myURLS;let ind=index">
+                    <td aria-label="Scrip Details">
+                        #{{ind+1}}
+                    </td>
+
+                    <td aria-label="Number of Shares">
+                        {{row.shortUrl}}
+                    </td>
+                    <td aria-label="Current Price">
+                        {{row.longUrl}}
+                    </td>
+                    <td aria-label="Current Price">
+                        {{row.createdAt}}
+                    </td>
+                    <td aria-label="Current Price">
+                        {{row.clicks}}
+                    </td>
+                    <td aria-label="Current Price">
+                        <mat-slide-toggle [checked]="true"></mat-slide-toggle>
+                    </td>
+                    <td>
+                        <mat-icon >more_horiz</mat-icon>
+                    </td>
+                </tr>
+
+            </table>
+            <div class="no-data" *ngIf="(!myURLS || !myURLS.length)">
+                No data available
+            </div>
+            
+        </div>
+        <mat-paginator [length]="10" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+    </div>
+<!-- <div class="floating-icon"> 
     <app-button [text]="'COPY TO CLIPBOARD'" [icon]="'add'" [isRounded]="true" (press)="sideNav.toggle()"></app-button>
-</div>
+</div> -->

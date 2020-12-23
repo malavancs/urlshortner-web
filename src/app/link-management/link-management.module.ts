@@ -10,7 +10,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [MyurlsComponent, NewurlComponent],
@@ -22,7 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatSlideToggleModule,
     MatSidenavModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 export class LinkManagementModule { }

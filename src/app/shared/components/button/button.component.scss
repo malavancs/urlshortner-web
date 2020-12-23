@@ -1,8 +1,8 @@
 .full-width {
-  width: -webkit-fill-available
+  width: -webkit-fill-available;
+  background: var(--primary-color);
 }
 
 .square-icon {
-  width: 64px;
-  height: 64px;
+  background: var(--primary-color);
 }

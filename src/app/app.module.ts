@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,9 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { SocialAuthServiceConfig } from 'angularx-social-login/socialauth.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,27 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatSlideToggleModule,
     MatSidenavModule,
+    HammerModule,
+    SocialLoginModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
-    // provider used to create fake backend
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '437926170744-fujiqam93gfc00qjh9qai4lkqo4do0u4.apps.googleusercontent.com'
+            )
+          },
+
+        ]
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

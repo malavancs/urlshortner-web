@@ -6,8 +6,11 @@
         <div class="google-login">
             <p class="secondary-heading black">Login with:</p>
             <div class="center-aligned">
-                <app-button [text]="'Google'" [icon]="'content_copy'" [isRounded]="false" (press)="pressed($event)">
-                </app-button>
+
+
+                <button type="button" class="login-with-google-btn" (click)="pressed($event)">
+                    Sign in with Google
+                </button>
             </div>
         </div>
         <div class="divider">
@@ -23,11 +26,12 @@
 
             </div>
             <div class="padding-all">
-                <app-inputbox class="full-width" [label]="'Password'" (textChanged)="passwordChanged($event)"></app-inputbox>
+                <app-inputbox class="full-width" [label]="'Password'" (textChanged)="passwordChanged($event)">
+                </app-inputbox>
             </div>
         </div>
         <div class="padding-top">
-            <app-button class="full-width" style="padding-top: 10%;" [text]="'  LOGIN'" [icon]="'login'" [isRounded]="false"
+            <app-button class="full-width" style="padding-top: 10%;" [text]="'  LOGIN'" [isRounded]="false"
                 (press)="loginClicked($event)">
             </app-button>
 
