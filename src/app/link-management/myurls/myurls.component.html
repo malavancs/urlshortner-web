@@ -1,7 +1,11 @@
 <div>
         <div class="title-wrapper">
             <app-pagetitle [title]="'MY URLS'"></app-pagetitle>
-            <app-button [text]="'ADD URL'"  [isRounded]="false" (press)="openDialog()"></app-button>
+            <div class="cotainer">
+                    <app-button [text]="'refresh'"  [isRounded]="true" [icon]="'refresh'" (press)="refreshPage()"></app-button>                
+                <app-button  [text]="'ADD URL'"  [isRounded]="false" (press)="openDialog()"></app-button>
+
+            </div> 
         </div>
         <!-- <div class="root-container">
             <div class="card" *ngFor="let n of myURLS">
@@ -79,9 +83,9 @@
             </div>
             
         </div>
-        <mat-paginator [length]="myURLS.length" [pageSize]="myURLS.length" [pageSizeOptions]="[5, 10, 25, 100]">
+        <mat-paginator [length]="10" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
             </mat-paginator>
     </div>
-<!-- <div class="floating-icon">
+<!-- <div class="floating-icon"> 
     <app-button [text]="'COPY TO CLIPBOARD'" [icon]="'add'" [isRounded]="true" (press)="sideNav.toggle()"></app-button>
 </div> -->

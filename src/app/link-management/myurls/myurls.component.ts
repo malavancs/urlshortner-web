@@ -26,7 +26,7 @@ export class MyurlsComponent implements OnInit {
         console.log(typeof ele.createdAt);
         ele.shortUrl = `malavan.tech/u/${ele.shortUrl}`;
         ele.createdAt = this.timeSince(ele.createdAt);
-      });
+      }); 
     });
   }
 
