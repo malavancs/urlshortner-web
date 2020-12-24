@@ -22,7 +22,9 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     const currentUser = localStorage.getItem('currentUser');
-   
+    if (currentUser !== null) {
+      this.router.navigate(['/links/myurls']);
+    }
     this.subsbriver = this.authService.authState.subscribe((user) => {
       if (user) {
         this.loaderService.show();
