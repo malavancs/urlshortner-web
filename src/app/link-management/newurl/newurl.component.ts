@@ -31,7 +31,6 @@ export class NewurlComponent implements OnInit {
         longUrl: this.longUrl
       };
       this.linkService.createURL(payload).subscribe((res: any) => {
-        console.log(res);
         this.shortUrl = `${environment.apiUrl}/u/${res.shortUrl.shortUrl}`;
         this.isGenerated = true;
         this.newURLAdded.emit(true);

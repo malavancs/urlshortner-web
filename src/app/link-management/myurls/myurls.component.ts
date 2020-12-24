@@ -29,7 +29,6 @@ export class MyurlsComponent implements OnInit {
     this.linkService.fetchMyURLS().subscribe((res: any) => {
       this.myURLS = res.data;
       this.myURLS.forEach((ele: any) => {
-        console.log(typeof ele.createdAt);
         ele.shortUrl = `malavan.tech/u/${ele.shortUrl}`;
         ele.createdAt = this.timeSince(ele.createdAt);
       });

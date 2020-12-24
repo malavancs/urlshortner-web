@@ -30,9 +30,13 @@ export class AppComponent {
       this.url = this.userData.findUser.photourl;
     }
   }
-  async logout(){
+  async logout() {
+    await this.authService.signOut().then((res: any) => {
+
+    }).catch((error: any) => {
+    });
     localStorage.removeItem('currentUser');
-    await this.authService.signOut();
+
     this.router.navigate(['/login']);
   }
 }

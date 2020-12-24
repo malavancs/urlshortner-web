@@ -1,34 +1,34 @@
-<div style="display: flex; justify-content: space-around;padding: 10px;">
-    <app-button [text]="'LOGIN'" [icon]="'content_copy'" [isRounded]="false" (press)="pressed($event)"></app-button>
-    <app-button [text]="'COPY TO CLIPBOARD'" [icon]="'content_copy'" [isRounded]="true"></app-button>
-    <app-button [text]="'COPY TO CLIPBOARD'" [isRounded]="false"></app-button>
-</div>
+<div class="root-container">
+    <div class="bg-image"></div>
+    <div class="login-container">
+        <div class="welcome-title">
+            Welcome to Short.ly
+        </div>
+        <div class="login-form">
+            <div class="text-field">
+                <input class="text-input" [(ngModel)]='email' type="text" placeholder="Enter email or User Name">
 
-<div style="display: flex; justify-content: space-around;padding: 10px;">
-    <app-inputbox [label]="'Username or Email'" ></app-inputbox>
-    <app-inputbox [label]="'Password'" ></app-inputbox>
-    <app-inputbox [label]="'Enter the url'" ></app-inputbox>
+            </div>
+            <div class="text-field">
+                <input class="text-input" [(ngModel)]='password' type="password" placeholder="Enter password">
 
-</div>
+            </div>
+            <div class="login-action">
+                <div class="forgot-password">Forgot password ?</div>
+                <button class="login" (click)="loginClicked($event)">Login</button>
 
-<div style="display: flex; justify-content: space-around;padding: 10px;">
-    <app-pagetitle [title]="'Username or Email'"></app-pagetitle>
-    <app-pagetitle [title]="'Password'"></app-pagetitle>
-    <app-pagetitle [title]="'Enter the url'"></app-pagetitle>
-
-</div>
-
-<div style="display: flex; justify-content: space-around;padding: 10px;">
-        <app-checkbox (toggleChange)="pressed($event)"></app-checkbox>
-        <app-checkbox (toggleChange)="pressed($event)"></app-checkbox>
-        <app-checkbox (toggleChange)="pressed($event)"></app-checkbox>
-    
-</div>
-
-<div style="display: flex; justify-content: space-around;padding: 10px;">
-        <app-drawer>
-            <p>This content</p>
-        </app-drawer>
-        <app-drawer></app-drawer>
-    
+            </div>
+        </div>
+        <div class="social-login">
+            <div class="google-signin">
+                <button type="button" class="login-with-google-btn" (click)="socialLogin('google')">
+                    Login with Google
+                </button>
+            </div>
+            <div class="facebook-sign">
+                <button type="button" class="login-with-facebook-btn" (click)="socialLogin('facebook')">
+                    Login with Facebook
+                </button> </div>
+        </div>
+    </div>
 </div>

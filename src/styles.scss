@@ -1,10 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 :root {
   --grey: #868686;
-  --font-size-label: 14px; 
-  --primary-color: #087E8B;
-  --default-padding: 10px;// or any global you wish to share with components 
+  --font-size-label: 14px;
+  --primary-color: #004d73;
+  --default-padding: 10px; // or any global you wish to share with components 
 }

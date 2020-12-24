@@ -5,14 +5,17 @@ import { SignupComponent } from './signup/signup.component';
 import { SessionRoutingModule } from './session-routing.module';
 import { LoginComponent } from './login/login.component';
 
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SignupComponent, LoginComponent],
   imports: [
     CommonModule,
     SharedModule,
-    SessionRoutingModule
+    SessionRoutingModule,
+    MatFormFieldModule,
+    FormsModule
   ]
 })
 export class SessionManagementModule { }

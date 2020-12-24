@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user';
 import { environment } from 'src/environments/environment';
-import { SocialAuthService } from 'angularx-social-login';
+import { SocialAuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 
 
@@ -14,7 +14,7 @@ export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
-    constructor(private http: HttpClient,private authService: SocialAuthService) {
+    constructor(private http: HttpClient, private authService: SocialAuthService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -42,5 +42,10 @@ export class AuthenticationService {
 
     signInWithGoogle(): void {
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-      }
+
+    }
+    signInWithFacebook(): void {
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+
+    }
 }
