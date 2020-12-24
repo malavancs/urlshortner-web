@@ -20,12 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     const currentUser = localStorage.getItem('currentUser');
-    // if (localStorage !== null) {
-    //   console.log('Is is here');
-    //   this.router.navigate(['/links/myurls']);
-    // }
     this.subsbriver = this.authService.authState.subscribe((user) => {
-      console.log(user);
       if (user) {
         this.loaderService.show();
         const payload = {
@@ -37,8 +32,6 @@ export class LoginComponent implements OnInit {
         };
         this.authendicationService.login(payload).subscribe((res: any) => {
           if (res) {
-            console.log('Is is here1');
-
             this.router.navigate(['/links/myurls']);
           } else {
             alert('Wrong password');
@@ -46,11 +39,9 @@ export class LoginComponent implements OnInit {
           this.loaderService.hide();
         }, ((err: any) => {
           this.loaderService.hide();
-          console.log(err);
           alert(err.error.message);
         }));
       } else {
-        console.log('I"m doing nothing');
       }
 
     });
@@ -66,7 +57,6 @@ export class LoginComponent implements OnInit {
       };
       this.authendicationService.login(payload).subscribe((res: any) => {
         if (res) {
-          console.log('Is is her12e');
 
           this.router.navigate(['/links/myurls']);
         } else {
@@ -75,7 +65,6 @@ export class LoginComponent implements OnInit {
         this.loaderService.hide();
       }, ((err: any) => {
         this.loaderService.hide();
-        console.log(err);
         alert(err.error.message);
       }));
     }

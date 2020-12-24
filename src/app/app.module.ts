@@ -13,7 +13,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { GoogleLoginProvider, SocialLoginModule, FacebookLoginProvider } from 'angularx-social-login';
 import { SocialAuthServiceConfig } from 'angularx-social-login/socialauth.service';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -49,7 +49,12 @@ import { MatButtonModule } from '@angular/material/button';
               '437926170744-fujiqam93gfc00qjh9qai4lkqo4do0u4.apps.googleusercontent.com'
             )
           },
-
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(
+              '171557311325262'
+            )
+          },
         ]
       } as SocialAuthServiceConfig,
     }
