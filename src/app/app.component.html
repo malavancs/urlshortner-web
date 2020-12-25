@@ -1,24 +1,15 @@
 <mat-toolbar *ngIf="isLoggedIn" style="background:var(--primary-color);">
-
+    <mat-icon style="color: white;">menu</mat-icon>
     <div>
-        <div style="margin: auto;
-                color: white;
-                padding: 10px;
-                font-size: 24px;
-                font-weight: bold;">URL Shortner</div>
+        <div class="app-name">URL Shortner</div>
     </div>
     <span class="example-spacer"></span>
-    <button (click)="logout()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button (click)="logout()" mat-icon-button class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
         <mat-icon style="color:white;">power_settings_new</mat-icon>
     </button>
 
-    <div><img style="    border-radius: 50%;
-                    width: 32px;
-                    height: 32px;
-                   
-                    margin-left: 10px;
-                    margin-right: 10px;
-                    margin-top: 4px;" [src]="url">
+    <div><img class="profile-pic" [src]="url">
     </div>
 </mat-toolbar>
 

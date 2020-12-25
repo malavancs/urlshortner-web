@@ -11,8 +11,8 @@ import { SocialAuthService } from 'angularx-social-login';
 })
 export class SignupComponent implements OnInit {
   password: any;
-  email: any;
-  subsbriver: any;
+  email: any = '';
+  subsbriver: any = '';
 
 
 
@@ -57,8 +57,9 @@ export class SignupComponent implements OnInit {
 
 
   loginClicked(event) {
-    this.loaderService.show();
+    console.log(this.email)
     if (this.email && this.password) {
+      this.loaderService.show();
       const payload = {
         email: this.email, password: this.password
       };

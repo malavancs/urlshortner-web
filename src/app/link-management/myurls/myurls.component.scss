@@ -43,6 +43,7 @@
 
 .long-url {
   font-weight: bold;
+  font-family: "Poppins";
   font-size: 16px;
   min-width: 90%;
   width: min-content;
@@ -59,8 +60,13 @@
 }
 
 .url-higliter {
-  font-weight: lighter;
-  padding-top: 10px;
+    padding-top: 10px;
+    min-width: 90%;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    word-break: break-all;
+    font-family: 'Poppins';
 }
 
 .floating-icon {
@@ -68,6 +74,7 @@
   bottom: 0;
   right: 10px;
   z-index: 10;
+  width: 100%;
 }
 
 table {
@@ -116,6 +123,40 @@ th {
   top: 0;
   z-index: 10;
 }
-#card{
-  overflow-y: auto; height: 420px;
+
+#card {
+  overflow-y: auto;
+  height: 420px;
+}
+
+@media only screen and (max-width: 773px) {
+  table {
+    display: none;
+  }
+
+  .carder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  #card{
+    overflow-y: auto;
+    height: 80vh;
+  }
+}
+
+@media only screen and (min-width: 773px) {
+  table {
+    display: inline-table;
+  }
+
+  .carder {
+    display: none;
+  }
+}
+
+.single-url {
+  padding: 10px;
+  border-left: 5px solid var(--primary-color);
+  box-shadow: 10px 10px 31px -15px rgba(0, 0, 0, 0.75);
 }

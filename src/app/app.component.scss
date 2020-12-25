@@ -1,3 +1,23 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
+
+
+.profile-pic {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+
+.app-name {
+  margin: auto;
+  color: white;
+  font-family: "Poppins";
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
