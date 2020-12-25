@@ -40,6 +40,19 @@ export class MyurlsComponent implements OnInit {
       this.loaderService.hide();
     });
   }
+  copyMessage(val: string) {
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(NewurlComponent, {
@@ -56,7 +69,7 @@ export class MyurlsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`${environment.apiUrl}/u/${oldURL}`);
   }
 
-  public onPageChange(event: PageEvent){
+  public onPageChange(event: PageEvent) {
     this.pageNo = event.pageIndex + 1;
     this.itemPerPage = event.pageSize;
     this.refreshPage();

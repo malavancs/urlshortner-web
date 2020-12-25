@@ -1,34 +1,15 @@
 <div>
-        <div class="title-wrapper">
-            <app-pagetitle [title]="'MY URLS'"></app-pagetitle>
-            <div class="cotainer">
-                    <app-button [text]="'refresh'"  [isRounded]="true" [icon]="'refresh'" (press)="refreshPage()"></app-button>                
-                <app-button  [text]="'ADD URL'"  [isRounded]="false" (press)="openDialog()"></app-button>
+    <div class="title-wrapper">
+        <app-pagetitle [title]="'MY URLS'"></app-pagetitle>
+        <div class="cotainer">
+            <app-button [text]="'refresh'" [isRounded]="true" [icon]="'refresh'" (press)="refreshPage()"></app-button>
+            <app-button [text]="'ADD URL'" [isRounded]="false" (press)="openDialog()"></app-button>
 
-            </div> 
         </div>
-        <!-- <div class="root-container">
-            <div class="card" *ngFor="let n of myURLS">
-                <span class="">
-                    <div class="single-item">
-                        <div class="long-url">{{n.longUrl}}</div>
-                        <mat-icon class="copy-icon">content_copy</mat-icon>
-                    </div>
-                    <div class="single-item">
-                        <div class="url-higliter"><a [href]="cleanURL(n.shortUrl)">
-                                https://murlshortner.herokuapp.com/u/{{n.shortUrl}}</a>
-                        </div>
-                        <mat-icon class="copy-icon padding-top">content_copy</mat-icon>
-                    </div>
-                    <div class="single-item">
-                        <div class="url-higliter">Clicks: {{n.clicks}}</div>
-                    </div>
-                </span>
-            </div>
-        </div> -->
-        <div id="card" style="margin: 20px;">
-            <table id="shareholding">
-                <thead>
+    </div>
+    <div id="card" style="margin: 20px;">
+        <table>
+            <thead>
                 <tr class="table-header">
                     <th>
                         Num
@@ -53,8 +34,8 @@
                         Action
                     </th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 <tr class="border-bottom" *ngFor="let row of myURLS;let ind=index">
                     <td aria-label="Scrip Details">
                         #{{ind+1}}
@@ -76,19 +57,50 @@
                         <mat-slide-toggle [checked]="true"></mat-slide-toggle>
                     </td>
                     <td>
-                        <mat-icon >more_horiz</mat-icon>
+                        <mat-icon>more_horiz</mat-icon>
                     </td>
                 </tr>
-</tbody>
-            </table>
-            <div class="no-data" *ngIf="(!myURLS || !myURLS.length)">
-                No data available
+            </tbody>
+        </table>
+        <div class="carder">
+            <div class="single-url" *ngFor="let n of myURLS">
+                <span>
+                    <div class="single-item">
+                        <div class="long-url">{{n.longUrl}}</div>
+                        <mat-icon (click)="copyMessage(n.longUrl)" class="copy-icon">content_copy</mat-icon>
+                    </div>
+                    <div class="single-item">
+                        <div class="url-higliter"><a [href]="cleanURL(n.shortUrl)">
+                                {{n.shortUrl}}</a>
+                        </div>
+                        <mat-icon (click)="copyMessage(n.shortUrl)" class="copy-icon padding-top">content_copy
+                        </mat-icon>
+                    </div>
+
+                    <div class="single-item">
+                        <div class="url-higliter">Date: {{n.createdAt}}</div>
+                    </div>
+                    <div class="single-item">
+                        <div class="url-higliter">Clicks: {{n.clicks}}</div>
+                    </div>
+                    <div class="single-item">
+                        <div class="url-higliter">Status:</div> <span>
+                            <mat-slide-toggle [checked]="true"></mat-slide-toggle>
+                        </span>
+                    </div>
+                </span>
             </div>
-            
         </div>
-       
+
+        <div class="no-data" *ngIf="(!myURLS || !myURLS.length)">
+            No data available
+        </div>
+
     </div>
-<div class="floating-icon"> 
-    <mat-paginator [length]="total" [pageSize]="myURLS.length" (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]">
+
+</div>
+<div class="floating-icon">
+    <mat-paginator [length]="total" [pageSize]="myURLS.length" (page)="onPageChange($event)"
+        [pageSizeOptions]="[5, 10, 25, 100]">
     </mat-paginator>
 </div>
