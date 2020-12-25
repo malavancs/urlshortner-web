@@ -114,7 +114,7 @@ tr.border-bottom td {
 th {
   position: sticky;
   top: 0;
-
+  z-index: 10;
 }
 #card{
   overflow-y: auto; height: 420px;
