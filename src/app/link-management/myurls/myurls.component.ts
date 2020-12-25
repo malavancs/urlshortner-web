@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { NewurlComponent } from '../newurl/newurl.component';
 import { LoaderService } from 'src/app/shared/service/loader.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-myurls',
@@ -14,6 +15,9 @@ import { LoaderService } from 'src/app/shared/service/loader.service';
 export class MyurlsComponent implements OnInit {
 
   myURLS = [];
+  total: any;
+  pageNo = 1;
+  itemPerPage = 10;
   constructor(
     private linkService: LinksService,
     private sanitizer: DomSanitizer,
@@ -26,8 +30,9 @@ export class MyurlsComponent implements OnInit {
 
   refreshPage() {
     this.loaderService.show();
-    this.linkService.fetchMyURLS().subscribe((res: any) => {
-      this.myURLS = res.data;
+    this.linkService.fetchMyURLS(this.pageNo, this.itemPerPage).subscribe((res: any) => {
+      this.myURLS = res.data.rows;
+      this.total = res.data.count;
       this.myURLS.forEach((ele: any) => {
         ele.shortUrl = `malavan.tech/u/${ele.shortUrl}`;
         ele.createdAt = this.timeSince(ele.createdAt);
@@ -49,6 +54,12 @@ export class MyurlsComponent implements OnInit {
   }
   cleanURL(oldURL): SafeUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`${environment.apiUrl}/u/${oldURL}`);
+  }
+
+  public onPageChange(event: PageEvent){
+    this.pageNo = event.pageIndex + 1;
+    this.itemPerPage = event.pageSize;
+    this.refreshPage();
   }
   timeSince(date) {
     date = new Date(date);
