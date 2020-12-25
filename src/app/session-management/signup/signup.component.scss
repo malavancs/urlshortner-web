@@ -42,12 +42,10 @@
 
 .login-action {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
   font-family: "Poppins", sans-serif;
-  margin: 0 0 3rem;
-  align-items: center;
-  
+  width: -webkit-fill-available;
 }
 
 .bg-image {
@@ -69,11 +67,16 @@
 
 .social-login {
   display: flex;
-  justify-content: space-between;
-  width: 400px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  div{
+    width: -webkit-fill-available;
+  }
 }
 .login{
-  width: 127px;
+  width: -webkit-fill-available;
   background: var(--primary-color);
   border: none;
   padding: 10px;
@@ -129,10 +132,12 @@
     box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
     cursor: not-allowed;
   }
+  width: -webkit-fill-available;
+  
 }
 
 .login-with-facebook-btn {
-
+  width: -webkit-fill-available;
   transition: background-color .3s, box-shadow .3s;
 
   padding: 12px 16px 12px 42px;
@@ -177,4 +182,24 @@
 
 button, input {
   outline: none;
+}
+.divider {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+
+
+}
+
+.line {
+  // border: 1px solid var(--grey);
+  width: -webkit-fill-available;
+  height: 1px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background: var(--grey);
+}
+
+.padding-horizondal {
+  padding: 0px 10px;
 }

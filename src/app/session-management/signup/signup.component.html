@@ -14,11 +14,16 @@
 
             </div>
             <div class="login-action">
-                <div class="forgot-password">Forgot password ?</div>
                 <button class="login" (click)="loginClicked($event)">Login</button>
 
             </div>
+            <div class="divider">
+                <div class="line"></div>
+                <div class="secondary-heading padding-horizondal">OR</div>
+                <div class="line"></div>
+            </div>
         </div>
+
         <div class="social-login">
             <div class="google-signin">
                 <button type="button" class="login-with-google-btn" (click)="socialLogin('google')">

@@ -1,12 +1,13 @@
 .root-container {
   display: flex;
-  justify-content: flex-end;
-  /* margin-top: 8%; */
-  /* margin-right: 8%; */
-  height: 100%;
-  width: 100%;
-  background: #004d73;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: "Poppins", sans-serif;
+  margin: 0 0 3rem;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center
 }
 
 .center-align {

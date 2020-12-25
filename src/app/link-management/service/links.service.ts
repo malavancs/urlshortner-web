@@ -12,8 +12,8 @@ export class LinksService {
 
   }
 
-  fetchMyURLS() {
-    return this.httpClient.get(this.apiURl + '/u/getAllUsers');
+  fetchMyURLS(pageNo, itemPerPage) {
+    return this.httpClient.get(this.apiURl + `/u/getAllUsers?pageNo=${pageNo}&itemPerPage=${itemPerPage}`);
   }
 
   createURL(payload) {

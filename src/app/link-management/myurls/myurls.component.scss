@@ -65,8 +65,8 @@
 
 .floating-icon {
   position: fixed;
-  bottom: 5%;
-  right: 5%;
+  bottom: 0;
+  right: 10px;
   z-index: 10;
 }
 
@@ -107,4 +107,15 @@ table {
 
 tr.border-bottom td {
   border-bottom: 1px solid #d6d6d6;
+}
+
+
+
+th {
+  position: sticky;
+  top: 0;
+
+}
+#card{
+  overflow-y: auto; height: 420px;
 }

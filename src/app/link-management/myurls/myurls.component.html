@@ -26,8 +26,9 @@
                 </span>
             </div>
         </div> -->
-        <div id="card" style="padding: 20px;">
+        <div id="card" style="margin: 20px;">
             <table id="shareholding">
+                <thead>
                 <tr class="table-header">
                     <th>
                         Num
@@ -52,6 +53,8 @@
                         Action
                     </th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr class="border-bottom" *ngFor="let row of myURLS;let ind=index">
                     <td aria-label="Scrip Details">
                         #{{ind+1}}
@@ -76,16 +79,16 @@
                         <mat-icon >more_horiz</mat-icon>
                     </td>
                 </tr>
-
+</tbody>
             </table>
             <div class="no-data" *ngIf="(!myURLS || !myURLS.length)">
                 No data available
             </div>
             
         </div>
-        <mat-paginator [length]="10" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-            </mat-paginator>
+       
     </div>
-<!-- <div class="floating-icon"> 
-    <app-button [text]="'COPY TO CLIPBOARD'" [icon]="'add'" [isRounded]="true" (press)="sideNav.toggle()"></app-button>
-</div> -->
+<div class="floating-icon"> 
+    <mat-paginator [length]="total" [pageSize]="myURLS.length" (page)="onPageChange($event)" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>
